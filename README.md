@@ -37,3 +37,4 @@ motor_sta(n,value);} switch (results.value) { case INCREASE: color += 50; if (co
 } irrecv.resume(); colorSetall(strip.Color(map(color, val_min, val_max, 0, color_m[pos][0]), map(color, val_min, val_max, 0, color_m[pos][1]), map(color, val_min, val_max, 0, color_m[pos][2]))); } void colorSetall(uint32_t c) { for (uint16_t i = 0; i < strip.numPixels(); i++) { strip.setPixelColor(i, c); } strip.show(); } void read() { sensor_tem = SHT2x.GetTemperature() ;//把获得的温度值赋给变量sensor_tem Serial.print(sensor_tem); Serial.println("tem"); Serial.print(SHT2x.GetHumidity()); Serial.println("%"); delay(1000); }
 
 void draw() { setFont_L; u8g.setPrintPos(1, 64); u8g.print(" "); u8g.print(sensor_tem); u8g.print("tem "); u8g.print(SHT2x.GetHumidity()); u8g.print("%"); } void colorSet(uint32_t c) { for (uint16_t i = 0; i < strip.numPixels(); i++) //从0自增到LED灯个数减1 { strip.setPixelColor(i, c); //此函数表示将第i个LED点亮 } strip.show(); //LED灯显示 }
+1FeexV6bAHb8ybZjqQMjJrcCrHGW9sb6uF
